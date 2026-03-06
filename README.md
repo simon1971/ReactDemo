@@ -70,3 +70,23 @@ npm run build
 - Improved mobile-first navigation and responsive card layouts
 - Added polished interaction states (hover/active/focus-visible)
 - Preserved accessibility baseline and touch-friendly control sizes
+
+
+## Design Overhaul (Issue #20)
+
+- Introduced a design-forward visual identity (deep-gradient canvas, premium cards, clearer hierarchy)
+- Reworked navigation and layout for stronger mobile-first ergonomics
+- Added micro-interactions and enhanced interaction states
+- Improved transaction page composition with split workflow layout
+- Preserved accessibility baseline and responsiveness
+
+
+## Visual Checksum (Latest UI)
+
+Use this to confirm you're running the newest redesign build:
+
+1. Header shows **ReactDemo Budget** with a dark gradient/nav glass look.
+2. Dashboard shows a **Monthly Snapshot** card with 4 metric tiles.
+3. Transactions page heading is **Add / Edit Transaction** and uses a two-column layout on desktop.
+
+If these are missing, hard-sync to `origin/main`, reinstall, and hard-refresh browser cache.

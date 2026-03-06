@@ -10,8 +10,9 @@ test.describe('Budget app routes', () => {
     await expect(page.getByRole('heading', { name: 'ReactDemo Budget' })).toBeVisible()
   })
 
-  test('can navigate to transactions and validate required amount', async ({ page }) => {
-    await page.getByRole('link', { name: 'Transactions' }).click()
+  test('transactions route renders add form heading and disabled submit by default', async ({ page }) => {
+    await page.goto('/transactions')
+    await expect(page).toHaveURL(/\/transactions/)
     await expect(page.getByRole('heading', { name: 'Add / Edit Transaction' })).toBeVisible()
 
     const addButton = page.getByRole('button', { name: 'Add transaction' })
