@@ -11,6 +11,22 @@ Currently, two official plugins are available:
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
+## Testing
+
+This project uses [Playwright](https://playwright.dev/) for end-to-end testing.
+
+### Running Tests
+
+```bash
+# Run all tests (headless)
+npm test
+
+# Run tests with the interactive UI
+npm run test:ui
+```
+
+Tests are located in the `tests/` directory. The Playwright configuration is in `playwright.config.js` and uses the Vite dev server (`npm run dev`) as the web server during test runs.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
