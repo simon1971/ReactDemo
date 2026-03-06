@@ -62,3 +62,11 @@ npm run build
 - Unit tests (helpers): `npm run test:unit`
 - E2E smoke tests (Playwright): `npm run test`
 - Add screenshots to `docs/screenshots/` before release
+
+
+## Modern UI Refresh (Issue #18)
+
+- Introduced a cleaner visual system (spacing, typography, colour tokens, elevation)
+- Improved mobile-first navigation and responsive card layouts
+- Added polished interaction states (hover/active/focus-visible)
+- Preserved accessibility baseline and touch-friendly control sizes
