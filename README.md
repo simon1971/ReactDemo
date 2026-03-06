@@ -45,3 +45,12 @@ npm run build
 - Storage key: `reactdemo.budget.v1`
 - Safe parsing/fallback defaults prevent crashes on corrupt payloads
 - State hydrates on load and auto-saves on changes
+
+
+## UX & Accessibility Baseline
+
+- Responsive layout supports 320px+ widths without horizontal overflow
+- Touch-friendly controls (minimum control height around 42px)
+- Visible keyboard focus styles via `:focus-visible`
+- All form controls use explicit labels
+- Over-budget state uses high-contrast warning colour
