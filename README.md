@@ -37,3 +37,11 @@ npm install
 npm run dev
 npm run build
 ```
+
+
+## Data Persistence
+
+- Uses `localStorage` via `src/storage/localStore.js`
+- Storage key: `reactdemo.budget.v1`
+- Safe parsing/fallback defaults prevent crashes on corrupt payloads
+- State hydrates on load and auto-saves on changes
