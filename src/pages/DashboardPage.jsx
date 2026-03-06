@@ -37,27 +37,28 @@ export function DashboardPage() {
 
   return (
     <>
-      <Card title="Dashboard">
-        <p>Current month: {currentMonth}</p>
-        <p>Total income: {formatCurrency(income)}</p>
-        <p>Total expenses: {formatCurrency(expenses)}</p>
-        <p>Net balance: {formatCurrency(net)}</p>
-        <p>Remaining budget: {formatCurrency(remainingBudget)}</p>
+      <Card title="Dashboard" subtitle={`Current month: ${currentMonth}`}>
+        <div className="metric-grid">
+          <div className="metric"><p className="metric-label">Income</p><p className="metric-value">{formatCurrency(income)}</p></div>
+          <div className="metric"><p className="metric-label">Expenses</p><p className="metric-value">{formatCurrency(expenses)}</p></div>
+          <div className="metric"><p className="metric-label">Net</p><p className="metric-value">{formatCurrency(net)}</p></div>
+          <div className="metric"><p className="metric-label">Remaining budget</p><p className={`metric-value ${remainingBudget < 0 ? 'text-danger' : ''}`}>{formatCurrency(remainingBudget)}</p></div>
+        </div>
       </Card>
 
-      <Card title="Top 3 spending categories">
-        <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
+      <Card title="Top spending categories">
+        <ul className="list-reset">
           {top3.map((row) => (
-            <li key={row.categoryId}>{row.label}: {formatCurrency(row.total)}</li>
+            <li className="list-row" key={row.categoryId}>{row.label}: {formatCurrency(row.total)}</li>
           ))}
           {top3.length === 0 ? <li>No spending yet this month.</li> : null}
         </ul>
       </Card>
 
       <Card title="Recent transactions">
-        <ul style={{ margin: 0, paddingLeft: '1.25rem' }}>
+        <ul className="list-reset">
           {recent.map((t) => (
-            <li key={t.id}>{t.date} • {t.type} • {formatCurrency(t.amount)} • {t.categoryId}</li>
+            <li className="list-row" key={t.id}>{t.date} • {t.type} • {formatCurrency(t.amount)} • {t.categoryId}</li>
           ))}
           {recent.length === 0 ? <li>No transactions yet.</li> : null}
         </ul>
