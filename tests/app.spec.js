@@ -1,27 +1,20 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test'
 
-test.describe('App', () => {
+test.describe('Budget app routes', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-  });
+    await page.goto('/')
+  })
 
-  test('has correct page title', async ({ page }) => {
-    await expect(page).toHaveTitle(/ReactDemo/i);
-  });
+  test('redirects to dashboard and shows app heading', async ({ page }) => {
+    await expect(page).toHaveURL(/dashboard/)
+    await expect(page.getByRole('heading', { name: 'ReactDemo Budget' })).toBeVisible()
+  })
 
-  test('displays the ReactDemo heading', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'ReactDemo' })).toBeVisible();
-  });
+  test('can navigate to transactions and validate required amount', async ({ page }) => {
+    await page.getByRole('link', { name: 'Transactions' }).click()
+    await expect(page.getByRole('heading', { name: 'Transactions' })).toBeVisible()
 
-  test('displays the description text', async ({ page }) => {
-    await expect(page.getByText('A clean, mobile-responsive React starter.')).toBeVisible();
-  });
-
-  test('displays primary action button', async ({ page }) => {
-    await expect(page.getByRole('button', { name: 'Primary Action' })).toBeVisible();
-  });
-
-  test('displays secondary button', async ({ page }) => {
-    await expect(page.getByRole('button', { name: 'Secondary' })).toBeVisible();
-  });
-});
+    const addButton = page.getByRole('button', { name: 'Add transaction' })
+    await expect(addButton).toBeDisabled()
+  })
+})

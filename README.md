@@ -54,3 +54,11 @@ npm run build
 - Visible keyboard focus styles via `:focus-visible`
 - All form controls use explicit labels
 - Over-budget state uses high-contrast warning colour
+
+
+## QA & Release Notes
+
+- Manual QA checklist: `docs/qa/manual-checklist.md`
+- Unit tests (helpers): `npm run test:unit`
+- E2E smoke tests (Playwright): `npm run test`
+- Add screenshots to `docs/screenshots/` before release
