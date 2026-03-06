@@ -1,32 +1,39 @@
-# React + Vite
+# ReactDemo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple home expense budgeting app (React + Vite).
 
-Currently, two official plugins are available:
+## Routes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `/dashboard` — monthly overview
+- `/transactions` — transaction entry/list
+- `/budgets` — monthly category budgets
+- `/settings` — app settings placeholder
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Testing
-
-This project uses [Playwright](https://playwright.dev/) for end-to-end testing.
-
-### Running Tests
-
-```bash
-# Run all tests (headless)
-npm test
-
-# Run tests with the interactive UI
-npm run test:ui
+```text
+src/
+  app/                # app-level wiring (reserved)
+  components/ui/      # reusable UI primitives (Card, Button, Input, Select, Modal)
+  models/             # core domain model definitions
+  pages/              # route-level page components
+  state/              # central app state/context
+  utils/              # formatting, date, validation helpers
+  App.jsx             # route map and top-level layout
+  main.jsx            # providers + router bootstrap
 ```
 
-Tests are located in the `tests/` directory. The Playwright configuration is in `playwright.config.js` and uses the Vite dev server (`npm run dev`) as the web server during test runs.
+## Core Models
 
-## Expanding the ESLint configuration
+- `Transaction` (id, type, amount, categoryId, note, date)
+- `Category` (id, name)
+- `BudgetTarget` (id, monthKey, categoryId, limit)
+- `Month` (key, year, month)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Scripts
+
+```bash
+npm install
+npm run dev
+npm run build
+```
