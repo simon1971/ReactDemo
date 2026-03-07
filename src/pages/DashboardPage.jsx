@@ -36,26 +36,26 @@ export function DashboardPage() {
   const recent = [...monthTx].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5)
 
   return (
-    <>
-      <Card title="Dashboard" subtitle={`Current month: ${currentMonth}`}>
+    <div className="section-grid">
+      <Card className="hero" title="Monthly Snapshot" subtitle={`Period: ${currentMonth}`}>
         <div className="metric-grid">
           <div className="metric"><p className="metric-label">Income</p><p className="metric-value">{formatCurrency(income)}</p></div>
           <div className="metric"><p className="metric-label">Expenses</p><p className="metric-value">{formatCurrency(expenses)}</p></div>
-          <div className="metric"><p className="metric-label">Net</p><p className="metric-value">{formatCurrency(net)}</p></div>
-          <div className="metric"><p className="metric-label">Remaining budget</p><p className={`metric-value ${remainingBudget < 0 ? 'text-danger' : ''}`}>{formatCurrency(remainingBudget)}</p></div>
+          <div className="metric"><p className="metric-label">Net Position</p><p className="metric-value">{formatCurrency(net)}</p></div>
+          <div className="metric"><p className="metric-label">Remaining Budget</p><p className={`metric-value ${remainingBudget < 0 ? 'text-danger' : ''}`}>{formatCurrency(remainingBudget)}</p></div>
         </div>
       </Card>
 
-      <Card title="Top spending categories">
+      <Card title="Top Spending Categories" subtitle="Highest expense buckets this month">
         <ul className="list-reset">
           {top3.map((row) => (
             <li className="list-row" key={row.categoryId}>{row.label}: {formatCurrency(row.total)}</li>
           ))}
-          {top3.length === 0 ? <li>No spending yet this month.</li> : null}
+          {top3.length === 0 ? <li>No spending recorded yet.</li> : null}
         </ul>
       </Card>
 
-      <Card title="Recent transactions">
+      <Card title="Recent Transactions" subtitle="Latest activity in this month">
         <ul className="list-reset">
           {recent.map((t) => (
             <li className="list-row" key={t.id}>{t.date} • {t.type} • {formatCurrency(t.amount)} • {t.categoryId}</li>
@@ -63,6 +63,6 @@ export function DashboardPage() {
           {recent.length === 0 ? <li>No transactions yet.</li> : null}
         </ul>
       </Card>
-    </>
+    </div>
   )
 }
