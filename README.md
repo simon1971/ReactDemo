@@ -90,3 +90,5 @@ Use this to confirm you're running the newest redesign build:
 3. Transactions page heading is **Add / Edit Transaction** and uses a two-column layout on desktop.
 
 If these are missing, hard-sync to `origin/main`, reinstall, and hard-refresh browser cache.
+
+- Codex setup validation: local git/gh PR flow verified on 2026-03-12.
